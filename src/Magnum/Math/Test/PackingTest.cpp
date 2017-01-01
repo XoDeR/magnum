@@ -42,6 +42,9 @@ struct PackingTest: Corrade::TestSuite::Tester {
     void reunpackUnsinged();
     void reunpackSinged();
     void unpackTypeDeduction();
+
+    /* Half (un)pack functions are tested and benchmarked in HalfTest.cpp,
+       because there's involved comparison and benchmarks to ground truth */
 };
 
 typedef Math::Vector3<Float> Vector3;
@@ -278,4 +281,3 @@ void PackingTest::unpackTypeDeduction() {
 }}}
 
 CORRADE_TEST_MAIN(Magnum::Math::Test::PackingTest)
-

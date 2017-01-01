@@ -187,6 +187,31 @@ template<class Integral, class FloatingPoint> CORRADE_DEPRECATED("use pack() ins
 }
 #endif
 
+/**
+@brief Pack 32-bit float value into 16-bit half-float representation
+
+See [Wikipedia](https://en.wikipedia.org/wiki/Half-precision_floating-point_format)
+for more information about half floats. NaNs are converted to NaNs and
+infinities to infinities, though their exact bit pattern is not preserved. Note
+that rounding mode is unspecified in order to save some cycles.
+
+Implementation based on CC0 / public domain code by *Fabian Giesen*,
+https://fgiesen.wordpress.com/2012/03/28/half-to-float-done-quic/ .
+*/
+MAGNUM_EXPORT UnsignedShort packHalf(Float value);
+
+/**
+@brief Unpack 16-bit half float value into 32-bit float representation
+
+See [Wikipedia](https://en.wikipedia.org/wiki/Half-precision_floating-point_format)
+for more information about half floats. NaNs are converted to NaNs and
+infinities to infinities, though their exact bit pattern is not preserved.
+
+Implementation based on CC0 / public domain code by *Fabian Giesen*,
+https://fgiesen.wordpress.com/2012/03/28/half-to-float-done-quic/ .
+*/
+MAGNUM_EXPORT Float unpackHalf(UnsignedShort value);
+
 }}
 
 #endif
